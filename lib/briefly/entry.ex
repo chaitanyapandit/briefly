@@ -66,8 +66,7 @@ defmodule Briefly.Entry do
   end
 
   defp ensure_tmp_dir(tmps) do
-    {mega, _, _} = :os.timestamp()
-    subdir = "briefly-" <> i(mega)
+    subdir = Nanoid.generate()
     Enum.find_value(tmps, &write_tmp_dir(&1 <> subdir))
   end
 
